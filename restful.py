@@ -57,6 +57,7 @@ class RESTResponse:
         elif output is not None and output.endswith('.csv'):
             response = json_response.json()
             output_file = open(output, 'w', newline='')
+            print(json_response.status_code)
             output = csv.writer(output_file)
             output.writerow(response[0].keys())
             for row in response:
